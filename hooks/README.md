@@ -86,6 +86,16 @@ chmod +x .git/hooks/prepare-commit-msg
    # Configure git to use Ollama
    git config hooks.commitProvider ollama
    ```
+   
+   **For Ollama on a custom server/port:**
+   ```bash
+   # If Ollama is running on a different machine or port
+   git config hooks.commitProvider ollama
+   git config hooks.ollamaUrl "http://192.168.1.100:11434"
+   
+   # Or use environment variable
+   export OLLAMA_URL="http://192.168.1.100:11434"
+   ```
 
 3. **Install or update the hooks:**
    ```bash
@@ -132,12 +142,14 @@ export GIT_COMMIT_PROVIDER="ollama"  # or "openai"
 export GIT_COMMIT_MODEL="gpt-4"  # or "llama3.2"
 export GIT_COMMIT_TEMPLATE="[JIRA-XXX] feat: message"
 export GIT_COMMIT_LANGUAGE="es"
+export OLLAMA_URL="http://192.168.1.100:11434"  # Custom Ollama server URL
 
 # Windows
 set GIT_COMMIT_PROVIDER=ollama
 set GIT_COMMIT_MODEL=gpt-4
 set GIT_COMMIT_TEMPLATE=[JIRA-XXX] feat: message
 set GIT_COMMIT_LANGUAGE=es
+set OLLAMA_URL=http://192.168.1.100:11434  # Custom Ollama server URL
 ```
 
 **Via Git Config (per repository):**
@@ -146,6 +158,7 @@ git config hooks.commitProvider "ollama"  # or "openai"
 git config hooks.providerModel "gpt-4"  # or "llama3.2", etc
 git config hooks.commitTemplate "[JIRA-XXX] feat: message"
 git config hooks.commitLanguage "es"
+git config hooks.ollamaUrl "http://192.168.1.100:11434"  # Custom Ollama server URL
 ```
 
 **Via Git Config (global):**
@@ -154,6 +167,7 @@ git config --global hooks.commitProvider "openai"
 git config --global hooks.providerModel "gpt-4"
 git config --global hooks.commitTemplate "feat(scope): message"
 git config --global hooks.commitLanguage "en"
+git config --global hooks.ollamaUrl "http://192.168.1.100:11434"  # Custom Ollama server URL
 ```
 
 ## Disable Hooks Temporarily

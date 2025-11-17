@@ -84,6 +84,12 @@ if ! git diff --cached --quiet; then
         set -- "$@" --language "$LANGUAGE"
     fi
     
+    # Add Ollama URL if configured (via environment variable or git config)
+    OLLAMA_URL="${OLLAMA_URL:-$(git config --get hooks.ollamaUrl)}"
+    if [ -n "$OLLAMA_URL" ]; then
+        set -- "$@" --ollama-url "$OLLAMA_URL"
+    fi
+    
     echo "${BLUE}Suggested commit message:${NC}"
     echo "----------------------------------------"
     

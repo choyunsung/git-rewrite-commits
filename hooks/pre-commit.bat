@@ -105,6 +105,17 @@ if defined GIT_COMMIT_LANGUAGE (
 if "%LANGUAGE%"=="" set "LANGUAGE=en"
 set CMD=%CMD% --language %LANGUAGE%
 
+REM Add Ollama URL if configured
+set "OLLAMA_URL="
+if defined OLLAMA_URL (
+    set "OLLAMA_URL=%OLLAMA_URL%"
+) else (
+    for /f "tokens=*" %%i in ('git config --get hooks.ollamaUrl 2^>nul') do set "OLLAMA_URL=%%i"
+)
+if not "%OLLAMA_URL%"=="" (
+    set CMD=%CMD% --ollama-url "%OLLAMA_URL%"
+)
+
 echo %BLUE%Suggested commit message:%NC%
 echo ----------------------------------------
 

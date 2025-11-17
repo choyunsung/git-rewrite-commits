@@ -157,6 +157,17 @@ if %ERRORLEVEL% NEQ 0 (
         set CMD=%CMD% --language %LANGUAGE%
     )
     
+    REM Add Ollama URL if configured
+    set "OLLAMA_URL="
+    if defined OLLAMA_URL (
+        set "OLLAMA_URL=%OLLAMA_URL%"
+    ) else (
+        for /f "tokens=*" %%i in ('git config --get hooks.ollamaUrl 2^>nul') do set "OLLAMA_URL=%%i"
+    )
+    if not "%OLLAMA_URL%"=="" (
+        set CMD=%CMD% --ollama-url "%OLLAMA_URL%"
+    )
+    
     REM Generate the message
     set "AI_MESSAGE="
     for /f "delims=" %%i in ('%CMD% 2^>nul') do set "AI_MESSAGE=%%i"

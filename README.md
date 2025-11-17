@@ -134,6 +134,10 @@ export OPENAI_API_KEY="your-api-key"  # Unix/macOS
 # Option B: Ollama (local processing, recommended for sensitive repos)
 ollama pull llama3.2
 ollama serve
+
+# Option C: Ollama on a custom server/port
+export OLLAMA_URL="http://192.168.1.100:11434"  # Unix/macOS
+# set OLLAMA_URL=http://192.168.1.100:11434     # Windows
 ```
 
 > **See [QUICK_START.md](QUICK_START.md) for detailed setup guide**
@@ -149,6 +153,9 @@ git config hooks.commitLanguage "es"  # Spanish, French, etc.
 
 # Set specific model
 git config hooks.providerModel "gpt-4"  # or "gpt-3.5-turbo", "llama3.2", etc.
+
+# Set custom Ollama server URL (if not using localhost:11434)
+git config hooks.ollamaUrl "http://192.168.1.100:11434"
 ```
 
 ## Usage
