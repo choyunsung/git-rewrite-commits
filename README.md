@@ -1,4 +1,4 @@
-# $ npx git-rewrite-commits
+# $ npx github:choyunsung/git-rewrite-commits
 
 > AI-powered git commit message rewriter using AI
 
@@ -79,35 +79,25 @@ ollama serve
 
 ### Quick Start (No Installation Required)
 ```bash
-npx git-rewrite-commits
-# or shorter:
-npx grec
+npx github:choyunsung/git-rewrite-commits
 ```
 
 ### Global Installation
 ```bash
-# Full command name
-npm install -g git-rewrite-commits
+npm install -g github:choyunsung/git-rewrite-commits
 
-# Or install the short alias (grec = git-rewrite-commits)
-npm install -g grec
-
-# Both work identically:
+# After installation:
 git-rewrite-commits --help
-grec --help  # Same thing, just shorter!
 ```
 
-> ✅ **Works on all platforms**: Windows, macOS, Linux  
-> 💡 **Tip**: `grec` is a shorter alias for `git-rewrite-commits` - use whichever you prefer!
+> ✅ **Works on all platforms**: Windows, macOS, Linux
 
 ## Quick Hook Installation
 
 **Step 1: Install or update the AI commit message hooks**
 
 ```bash
-npx git-rewrite-commits --install-hooks
-# or with the short alias:
-npx grec --install-hooks
+npx github:choyunsung/git-rewrite-commits --install-hooks
 ```
 
 > 💡 **Updates existing hooks**: If hooks already exist, they'll be updated to the latest version. Non-git-rewrite-commits hooks are backed up before replacement.
@@ -193,35 +183,35 @@ See [`COMMIT_MESSAGE.md.example`](COMMIT_MESSAGE.md.example) in this repository 
 
 ```bash
 # Using the full command name
-npx git-rewrite-commits [options]
+npx github:choyunsung/git-rewrite-commits [options]
 
 # Or using the short alias (grec)
-npx grec [options]
+npx github:choyunsung/git-rewrite-commits [options]
 ```
 
 Common use cases:
 
 ```bash
 # Rewrite entire git history
-npx git-rewrite-commits
+npx github:choyunsung/git-rewrite-commits
 
 # Preview changes without applying (dry run)
-npx git-rewrite-commits --dry-run
+npx github:choyunsung/git-rewrite-commits --dry-run
 
 # Generate commit message for staged changes
-npx git-rewrite-commits --staged
+npx github:choyunsung/git-rewrite-commits --staged
 
 # Process only last 10 commits
-npx git-rewrite-commits --max-commits 10
+npx github:choyunsung/git-rewrite-commits --max-commits 10
 
 # Use custom AI model
-npx git-rewrite-commits --model gpt-4
+npx github:choyunsung/git-rewrite-commits --model gpt-4
 
 # Use local AI with Ollama
-npx git-rewrite-commits --provider ollama
+npx github:choyunsung/git-rewrite-commits --provider ollama
 
 # Install/update git hooks
-npx git-rewrite-commits --install-hooks
+npx github:choyunsung/git-rewrite-commits --install-hooks
 ```
 
 ## Real-World Examples
@@ -234,9 +224,9 @@ npx git-rewrite-commits --install-hooks
 
 ```bash
 # Install the hooks (using either command)
-npx git-rewrite-commits --install-hooks
+npx github:choyunsung/git-rewrite-commits --install-hooks
 # or
-npx grec --install-hooks
+npx github:choyunsung/git-rewrite-commits --install-hooks
 
 # Enable them (opt-in for security)
 git config hooks.preCommitPreview true    # Preview before commit
@@ -256,7 +246,7 @@ Now when you run `git commit`:
 ```bash
 # Clean up the last 5 commits before pushing
 echo "🔧 Improving commit messages before push..."
-npx git-rewrite-commits --max-commits 5 --dry-run
+npx github:choyunsung/git-rewrite-commits --max-commits 5 --dry-run
 
 echo "Apply changes? (y/n)"
 read answer
@@ -269,15 +259,15 @@ Add to your `~/.gitconfig` or `~/.zshrc`/`~/.bashrc`:
 
 ```bash
 # Git alias
-git config --global alias.fix-commits '!npx git-rewrite-commits --max-commits'
+git config --global alias.fix-commits '!npx github:choyunsung/git-rewrite-commits --max-commits'
 
 # Usage: git fix-commits 3
 ```
 
 ```bash
 # Shell alias
-alias fix-last-commit='npx git-rewrite-commits --max-commits 1 --skip-backup'
-alias fix-branch='npx git-rewrite-commits --max-commits 20'
+alias fix-last-commit='npx github:choyunsung/git-rewrite-commits --max-commits 1 --skip-backup'
+alias fix-branch='npx github:choyunsung/git-rewrite-commits --max-commits 20'
 
 # Usage: fix-last-commit
 ```
@@ -288,10 +278,10 @@ Before creating a pull request:
 
 ```bash
 # 1. Check what needs fixing
-npx git-rewrite-commits --dry-run --max-commits 10
+npx github:choyunsung/git-rewrite-commits --dry-run --max-commits 10
 
 # 2. Apply improvements
-npx git-rewrite-commits --max-commits 10
+npx github:choyunsung/git-rewrite-commits --max-commits 10
 
 # 3. Force push to your feature branch
 git push --force-with-lease origin feature-branch
@@ -304,7 +294,7 @@ Add to your CI pipeline (e.g., GitHub Actions) for PR validation:
 ```yaml
 - name: Check Commit Quality
   run: |
-    npx git-rewrite-commits --dry-run --max-commits ${{ github.event.pull_request.commits }}
+    npx github:choyunsung/git-rewrite-commits --dry-run --max-commits ${{ github.event.pull_request.commits }}
     # This will show which commits would be improved
 ```
 
@@ -314,7 +304,7 @@ Before making a private repo public:
 
 ```bash
 # Fix all commits with custom template
-npx git-rewrite-commits \
+npx github:choyunsung/git-rewrite-commits \
   --template "feat(scope): message" \
   --language en \
   --no-skip-well-formed
