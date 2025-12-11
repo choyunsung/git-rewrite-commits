@@ -13,7 +13,7 @@ Welcome to the documentation for `git-rewrite-commits` - an AI-powered tool for 
 - **[API Reference](./API.md)** - Programmatic usage and TypeScript API
 
 ### Web Documentation
-- **[Interactive Demo](https://f.github.io/git-rewrite-commits/)** - Live web interface with examples
+- **[Interactive Demo](https://choyunsung.github.io/git-rewrite-commits/)** - Live web interface with examples
 
 ## 🚀 Quick Start
 
@@ -89,9 +89,9 @@ See [Security Documentation](./SECURITY.md) for details.
 
 ## 💬 Support
 
-- [GitHub Issues](https://github.com/f/git-rewrite-commits/issues)
+- [GitHub Issues](https://github.com/choyunsung/git-rewrite-commits/issues)
 - [npm Package](https://www.npmjs.com/package/git-rewrite-commits)
-- [Source Code](https://github.com/f/git-rewrite-commits)
+- [Source Code](https://github.com/choyunsung/git-rewrite-commits)
 
 ---
 

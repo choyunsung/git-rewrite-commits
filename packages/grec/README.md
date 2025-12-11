@@ -69,7 +69,7 @@ Options:
 ## Documentation
 
 For full documentation, examples, and setup guides, see:
-- [git-rewrite-commits on GitHub](https://github.com/f/git-rewrite-commits)
+- [git-rewrite-commits on GitHub](https://github.com/choyunsung/git-rewrite-commits)
 - [git-rewrite-commits on npm](https://www.npmjs.com/package/git-rewrite-commits)
 
 ## License
